@@ -60,7 +60,7 @@ touch firmware if it's already there.
 ## Running it from the Arduino IDE
 
 1. Install this library, [LVGL](https://lvgl.io) 9 (from the Library Manager), and
-   **chipguy_P486_or_JC8012_display**, which drives both boards' screens.
+   [**chipguy_P486_or_JC8012_display**](https://github.com/chipguyhere/P486_or_JC8012_display), which drives both boards' screens.
 2. Open **File → Examples → chipguy_ESP32-P4-C6-firmware-installer → InstallFirmware**.
 3. Board settings: **ESP32P4 Dev Module**, **PSRAM: Enabled**, **Flash Size: 16 MB**,
    **Partition Scheme: Custom**. (Custom uses the `partitions.csv` in the sketch folder,
