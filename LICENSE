@@ -1,0 +1,38 @@
+This library is mixed-license.
+
+- The GSL3680 touch controller firmware - examples/InstallFirmware/
+  gsl3680_firmware_blob.h and its source form under extras/gsl3680/ - is
+  Silead's (2010 - 2016 silead inc.), from their gslX680 touchscreen driver,
+  and is licensed under the GNU General Public License, version 2; see
+  LICENSE-GPL-2.0.txt.  A program built from the InstallFirmware example
+  contains it and is covered by the GPL.
+
+- The ESP32-C6 co-processor firmware - examples/InstallFirmware/c6_firmware.h - is
+  Espressif's ESP-Hosted (esp-hosted-mcu v2.12.13, built with ESP-IDF v5.5.5),
+  licensed under the Apache License, Version 2.0; see LICENSE-Apache-2.0.txt.
+  extras/c6/README.md says how it was built.
+
+- Everything else - src/ESP32P4C6_FirmwareInstaller.h, the example sketch
+  code, extras/gsl3680/make_blob.py and extras/c6/make_c6_header.py - is:
+
+MIT License
+
+Copyright (c) 2026 chipguyhere
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
