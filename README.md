@@ -37,8 +37,8 @@ selected).
   Espressif's ESP-Hosted firmware, which has to match the Arduino core you build with.
   Boards often arrive with an older version. If the C6's is older than the one this
   installer carries, it offers to update it: tap **Update C6**. A progress bar runs for
-  about a minute, then the board restarts and checks again. It never puts an older
-  version over a newer one.
+  about a minute, then the board restarts and checks again. If the C6 has something
+  *newer*, see [below](#which-radio-firmware).
 
 Both stay put through later uploads and power cycles. Only erasing the whole flash
 removes the touch firmware - the Arduino IDE's **Erase All Flash Before Sketch Upload**
@@ -66,20 +66,44 @@ touch firmware if it's already there.
    **Partition Scheme: Custom**. (Custom uses the `partitions.csv` in the sketch folder,
    the same layout as the display libraries' examples.) Upload.
 4. Follow the screen. Everything on it is also printed to the Serial Monitor at 115200
-   baud, where you can type `u` (update) or `s` (skip) instead of tapping.
+   baud, where you can type instead of tapping: `u` takes the offer, `s` skips it, `a`
+   opens Advanced (`y` installs, `n` goes back).
 5. When it says **All done**, upload your own sketch.
 
 The touch firmware uses about 10 KB of the 20 KB NVS area, so sketches that store a lot
 in NVS themselves (with `Preferences`, for example) could run short of room.
 
-## Which radio firmware, and why not the newest
+## Which radio firmware
 
-The installer carries **ESP-Hosted 2.12.13**, the version the Arduino ESP32 core 3.3.12
-is built against. Espressif's newest, 3.x, uses a new protocol that Arduino core 3.3
-can't talk to: on a C6 running 3.x, Wi-Fi stops working in every Arduino sketch, and an
-Arduino installer can't bring it back. ESP-IDF projects built with ESP-Hosted 3.x work
-with 2.12.13. When a newer Arduino core moves to a newer ESP-Hosted, so will this.
-[extras/c6/](extras/c6/README.md) says exactly how the image was built.
+The installer carries two versions of ESP-Hosted for the C6:
+
+- **2.12.13, the default.** It's the version the Arduino ESP32 core 3.3.12 is built
+  against: Wi-Fi and Bluetooth in Arduino sketches. ESP-IDF projects built with
+  ESP-Hosted 3 work with it too.
+- **3.1.0, under Advanced** (the button at the top right). For ESP-IDF projects built with
+  ESP-Hosted 3, which want the matching version. Wi-Fi and Bluetooth. **Arduino sketches
+  can't use it**: with 3.1.0 on the C6, Wi-Fi and Bluetooth stop working in every Arduino
+  sketch. Run the installer again and it offers **Restore 2.12.13** - tested, there and
+  back.
+
+What the screen offers depends on what the C6 has now:
+
+| On the C6 | Offered |
+|---|---|
+| older than 2.12.13, or too old to say | **Update C6** to 2.12.13 |
+| 2.12.13 | nothing: up to date |
+| 3.1.0 (from Advanced) | **Restore 2.12.13** for Arduino |
+| anything else newer than 2.12.13 | **Accept risk** or **Leave it** (below) |
+
+**A newer version this installer doesn't carry.** If the C6 has, say, ESP-Hosted 3.2,
+installing 2.12.13 (or 3.1.0 from Advanced) replaces it, and this installer has no copy of
+3.2 to put back. Going back from 3.x to 2.x was tested only from 3.1.0. The screen says so,
+and you choose: accept the risk, or leave it and use an installer that carries your
+version.
+
+ESP-NOW isn't available on these boards either way: ESP-Hosted doesn't carry it to the P4,
+and the Arduino core's ESP-NOW library is for chips with their own Wi-Fi.
+[extras/c6/](extras/c6/README.md) says exactly how both images were built.
 
 ## Why the touch firmware is separate
 

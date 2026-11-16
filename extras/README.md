@@ -16,6 +16,6 @@ The display libraries check the installed image against the same SHA-256
 
 ## `c6/` - the ESP32-C6 firmware's provenance
 
-- `make_c6_header.py` - turns an ESP-Hosted co-processor build into
-  `examples/InstallFirmware/c6_firmware.h`.
-- `README.md` - exactly which build is shipped, and how to make the next one.
+- `make_c6_header.py` - turns an ESP-Hosted co-processor build into a header:
+  `examples/InstallFirmware/c6_firmware.h` (2.12.13) and `c6_firmware_3x.h` (3.1.0).
+- `README.md` - exactly which builds are shipped, and how to make the next ones.

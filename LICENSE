@@ -7,8 +7,9 @@ This library is mixed-license.
   LICENSE-GPL-2.0.txt.  A program built from the InstallFirmware example
   contains it and is covered by the GPL.
 
-- The ESP32-C6 co-processor firmware - examples/InstallFirmware/c6_firmware.h - is
-  Espressif's ESP-Hosted (esp-hosted-mcu v2.12.13, built with ESP-IDF v5.5.5),
+- The ESP32-C6 co-processor firmware - examples/InstallFirmware/c6_firmware.h and
+  c6_firmware_3x.h - is Espressif's ESP-Hosted (esp-hosted-mcu v2.12.13 and v3.1.0,
+  built with ESP-IDF v5.5.5),
   licensed under the Apache License, Version 2.0; see LICENSE-Apache-2.0.txt.
   extras/c6/README.md says how it was built.
 
